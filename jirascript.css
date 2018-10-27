@@ -1,0 +1,12 @@
+.ghx-issue{
+    cursor:pointer !important;
+}
+
+.ghx-parent-stub{
+    
+}
+
+.ghx-group > .ghx-key{
+	cursor:alias;
+	text-decoration: underline;
+}

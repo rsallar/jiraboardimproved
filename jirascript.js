@@ -13,28 +13,26 @@ function addCSS(id, css) {
     head.appendChild(s);
 }
 
+
 function removeElement(id){
     var trash = document.getElementById(id);
     trash.parentNode.removeChild(trash);
 }
  
+function hide(event){
+	//window.location changes between jira instances
+	window.open("browse/"+event.target.textContent,'_blank');
+}
 
-function calculateWips(){
+function init(){
+    $(document).on('click', '.ghx-group > .ghx-key', hide);	
 	
-	
-
-	/*for (var i = 0; i < columnNames.length; i++) {
-        var columnName = columnNames[i][text];		
-		dropdownMenu += '<aui-item-checkbox id="toggle" col='+i+' interactive checked>'+columnName+'</aui-item-checkbox>';
-	}*/
 }
 
 var checkExist = setInterval(function() {
    if (document.getElementById('ghx-column-headers')) {
       clearInterval(checkExist);
-	  calculateWips();
-	  $(document).on('click', '.js-quickfilter-button', calculateWips);
-	  
+	  init();
    }
    console.log("checking...");
 }, 100); 
